@@ -20,3 +20,36 @@ The server marks card ID `1001` as **Valid** and other IDs as **Invalid**. A val
 4. To inspect the rules, open **Server0 > Desktop > Web Browser** and go to `http://192.168.1.15` inside Packet Tracer. Sign in with the simulation-only credentials `rfidlab` / `rfidlab`, then select **Conditions**.
 
 Both card IDs were tested against the reader and the corresponding door lock state was observed. The lab controls the lock; it does not swing the door open automatically.
+
+
+To demonstrate it in your practical exam:
+
+1. Open your saved **RFID Door Access Control.pkt** file and keep **Realtime** mode selected.
+
+2. Explain the devices:
+   - **R1:** provides DHCP addresses.
+   - **Switch:** connects the network.
+   - **Server0:** stores the IoT devices and automation rules.
+   - **IoT2:** RFID reader.
+   - **IoT0:** door.
+   - **IoT1:** RFID card.
+
+3. Show the rules:  
+   **Server0 → Desktop → Web Browser → `http://192.168.1.15`**  
+   Log in with **admin / admin**, open **Conditions**, and show all four rules enabled.
+
+4. **Demonstrate an invalid card:**
+   - Open **IoT1 → Attributes**.
+   - Double-click the **CardID** value, enter **500**, and press **Enter**.
+   - Close the device window.
+   - Drag the card away from the reader, then back beside it.
+   - Wait briefly: the reader indicates invalid and the door stays **locked (red)**.
+
+5. **Demonstrate a valid card:**
+   - Change **CardID** to **1001**.
+   - Drag the card away and back beside the reader.
+   - Wait briefly: the reader indicates valid and the door becomes **unlocked (green)**.
+
+Say: **“The reader sends the card ID to the registration server. The server validates it using conditions. ID 1001 unlocks the door; any other ID locks it.”**
+
+The door may remain visually closed when unlocked—**watch the lock indicator**.
